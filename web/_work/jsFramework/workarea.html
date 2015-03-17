@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script>
+// based on code by MH
+
+/*
+
+BASCIALLLY A CONTENT STORE THAT CAN BE MANIPUULTED TO FOR ANY DISPLAY
+
+1. create an object that is the holder (will contain all the work areas)
+2. create an object that is the tile - there can be mutiples
+3. tile object contains 2 areas tiletab, tilecontent
+4. worktabarea is 1-1 link with workcontentarea, each creates a div
+
+
+objHolder
+	PROPERTIES
+		nTiles = the number of tile objects in existence
+	INHERITS
+		inherits its height and width from the WORKAREA -- built outside of this.
+		uses the workarea div as the location to load tiles
+		
+objNewTile
+	This could be used to create a div that sits underneath the tiles but activated on when a tab is dragged and into it
+		
+
+objTile
+	the edge of a tile can be dragged and resized
+	PROPERTIES
+		width
+		height
+
+objTileTab
+
+objTileContent
+
+*/
+</script>
+<style>
+#CENTRALCONTROLAREA{
+width:1000px;
+height:20px;
+border:1px solid;
+border-color:#0000FF;
+}
+
+#WORKAREA{
+width:1000px;
+height:500px;
+border:1px solid;
+border-color:#000000;
+}
+</style>
+</head>
+<body>
+<div id="CENTRALCONTROLAREA">buttons here</div>
+<div id="WORKAREA">content here</div>
+</body>
+</html>

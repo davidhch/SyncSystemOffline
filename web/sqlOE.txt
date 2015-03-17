@@ -1,0 +1,17 @@
+Dim nID As Int
+set conn=Server.CreateObject("ADODB.Connection")
+conn.ConnectionString = "driver={SQL Server};server=212.104.131.118;uid=SuperAdmin;pwd=effort39;Network=DBMSSOCN;database=DNETSQL0032"
+conn.Open
+set rs = Server.CreateObject("ADODB.recordset")
+rs.Open "Select * from Orders", conn
+
+do until rs.EOF
+    nID = rs("ID")
+    rs.MoveNext
+loop
+
+rs.close
+conn.close
+
+msgbox nID
+%>

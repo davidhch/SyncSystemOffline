@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script>
+<!--//
+var arrLineItems = new Array();
+var nArrayItem=0;
+var soapData = ""
+
+function lineItem(ProductName,ProductCost) 
+{
+	this.ProductName = ProductName;
+	this.ProductCost = ProductCost;
+}
+
+function addLineItem(ProductName,ProductCost) 
+{
+	arrLineItems[nArrayItem]=new lineItem(ProductName,ProductCost);
+	nArrayItem+=1;
+}
+
+function addOrders(strProductName,nCost)
+{
+	addLineItem(strProductName,nCost);
+			
+	document.getElementById('CurrentOrders').innerHTML=document.getElementById('CurrentOrders').innerHTML +"<br />"+strProductName + " " + nCost;	
+}
+
+
+function xmlOrder()
+{
+	openSoap();
+	for (i = 0; i <= arrLineItems.length-1; i++)
+	{
+		<!--alert(arrLineItems[i].ProductName +" - "+ arrLineItems[i].ProductCost);-->
+		
+	}
+	closeSoap();
+}	
+
+function openSoap()
+{
+	soapData = '<SOAP:Envelope xmlns:SOAP="urn:schemas-xmlsoap-org:soap.v1">';
+	soapData = soapData + '<SOAP:Body>';
+	soapData = soapData + '<Products>';
+}
+
+function closeSoap()
+{
+	soapData = soapData + '</Products>';
+	soapData = soapData + '</SOAP:Body>';
+	soapData = soapData + '</SOAP:Envelope>'
+}
+
+function addSoap()
+{
+	soapData = soapData + addNode();
+}
+
+function addstrNodeXML(strNode)
+{
+	var arrxmlOrders[nArrayxmlItem]=new Array();
+	nArrayxmlItem+=1;
+}
+
+
+function addNode()
+{	
+	var strNode = "";	
+	
+	for(i=0;i<=arrLineItems.length-1;i++)
+	{
+		strNode = strNode + '<Product>';
+		strNode = strNode + '<ProductName>'+arrLineItems[i].ProductName+'</ProductName>';
+		strNode = strNode + '<ProductCost>'+arrLineItems[i].ProductCost+'</ProductCost>';
+		strNode = strNode + '</Product>';
+	}
+	
+	addstrNodeXML(strNode);
+	return strNode;
+}
+
+
+//-->
+</script>
+</head>
+<body>
+<div id="MainDiv">
+	<label id="lblCurrentOrders">Current Orders: </label>
+	
+	<div id="CurrentOrders"></div>
+	<br />
+	<p></p>
+	<label id="lblProductName">Product Name: </label><input type="text" id="ProductName" onclick="this.value='';"/>
+	<br />
+	<label style="margin-right:60px;" id="lblProductCost">Cost: </label><input type="text" id="ProductCost" onclick="this.value='';" />
+	<br />
+	<p></p>
+	<input type="button" id="btnAddOrder" value="Add Orders" onclick="addOrders(document.getElementById('ProductName').value,document.getElementById('ProductCost').value)"/>
+	<input type="button" id="btnClearOrders" value="Clear Orders" onclick="clearOrders(document.getElementById('CurrentOrders').value)" />
+	<input type="button" id="btnAlertOrders" value="Alert Orders" onclick="xmlOrder()"/>
+</div>
+</body>
+</html>

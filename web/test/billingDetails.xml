@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<SOAP:Envelope xmlns:SOAP="urn:schemas-xmlsoap-org:soap.v1">
+<SOAP:Body>
+<Request>
+<FunctionCall>SendCustomerDetailsXML</FunctionCall>
+<ID>1187</ID>
+<CustomerID>1187</CustomerID>
+<OrderEntryCID>7734</OrderEntryCID>
+<CustomerName>myname</CustomerName>
+<Company>mycomp</Company>
+<Address1>add1</Address1>
+<Address2>add2</Address2>"
+<City>exeter</City>"
+<County>devon</County>
+<PostCode>tq125jf</PostCode>
+<EmailAddress>dcurnow@destinet.co.uk</EmailAddress>
+<TelNo>666</TelNo>
+<NewZappCIDs>
+	<NewZappCID>7734</NewZappCID>
+	<NewZappCID>2467</NewZappCID>
+</NewZappCIDs>
+<CreditLimit>1000</CreditLimit>
+</Request>
+</SOAP:Body>
+</SOAP:Envelope>

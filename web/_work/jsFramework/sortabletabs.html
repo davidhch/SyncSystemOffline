@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>THIS IS MY PAGE</title>
+<script language="JavaScript" type="text/javascript" src="js/nzIEConstants.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/IEJSFramework.js"></script>
+<script>
+window.onload = loadTab;
+	function loadTab(){
+		$("phonetic").init_tabs();
+		$("phonetic").init_anotherThing();
+	}
+	
+	// literal objects --  overridable propeties
+	var anotherThing = {
+		init_anotherThing: function(obj){
+			//alert(obj + " passed back in for me to use");
+		}
+	};
+	
+	var tabs = {
+	
+		startTab : null,
+		endTab : null,
+		
+		init_tabs : function(obj) {
+
+			if (this.startTab == null) {
+				this.startTab = this.endTab = obj;
+				obj.previous = null;
+				obj.next = null;
+			} else {
+				obj.previous = this.endTab;
+				obj.next = null;
+				this.endTab.next = obj;
+				this.endTab = obj;
+			}
+		
+			var items = obj.getElementsByTagName( "li" );
+			
+			for (var i = 0; i < items.length; i++) {
+				//tabs.makeItemDragable(items[i]);
+				
+			}
+
+			this.changeBG(obj);
+		},
+		
+		changeBG : function(obj){
+			$(obj.id).style.margin("100px");
+		}
+	};
+	
+</script>
+</head>
+<body>
+<div id="phoneticdiv"></div>
+<ul id="phonetic" class="sortable boxy" style="margin-left: 1em;">
+	<li>Alpha</li>
+	<li>Bravo</li>
+	<li>Charlie</li>
+	<li>Delta</li>
+	<li>Echo</li>
+</ul>
+
+<br /><hr /><br />
+
+<ul id="numeric" class="sortable boxy" style="margin-right: 1em;">
+	<li>One</li>
+	<li>Two</li>
+	<li>Three</li>
+	<li>Four</li>
+	<li>Five</li>
+</ul>
+
+<br /><hr /><br />
+
+<ul id="french" class="sortable boxy" style="margin-right: 1em;">
+	<li>un</li>
+	<li>du</li>
+	<li>twa</li>
+	<li>catra</li>
+	<li>sank</li>
+</ul>
+</body>
+</html>

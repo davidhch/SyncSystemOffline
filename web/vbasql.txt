@@ -1,0 +1,1 @@
+SELECT [dbo_Orders].ID, [dbo_Order Details].NewZappCID, [dbo_Web Hosting].CID FROM   [dbo_Order Details] INNER JOIN [dbo_Orders] ON [dbo_Order Details].OrderID = [dbo_Orders].ID INNER JOIN [dbo_Web Hosting] ON [dbo_Order Details].NewZappCID = [dbo_Web Hosting].ID WHERE ([dbo_Orders].ID = 8217)
